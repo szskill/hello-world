@@ -13,20 +13,16 @@ class Basics(unittest.TestCase):
         self.assertEqual(msg.text, 'Test123!@')
 
     def test_print(self):
-        """
-        Test if the print method actually works.
+        """Tests `print` against multiple unicode characters."""
 
-        Redirects stdout temporarily and asserts its value.
-        """
-
-        msg = ConsoleMessage('Test123!@')
+        msg = ConsoleMessage('Test123@!¶§¨«²ÙÚÛÝ')
 
         stdout_buf = StringIO()
         with redirect_stdout(stdout_buf):
             msg.print()
             msg.print(newline=False)
 
-        self.assertIn('Test123!@\nTest123!@', stdout_buf.getvalue())
+        self.assertIn('Test123@!¶§¨«²ÙÚÛÝ\nTest123@!¶§¨«²ÙÚÛÝ', stdout_buf.getvalue())
 
 
 if __name__ == '__main__':
