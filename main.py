@@ -1,3 +1,6 @@
+import sys
+
+
 class ConsoleMessage:
     """Represents a console message that can be printed to the console (stdout by default)."""
 
@@ -10,10 +13,13 @@ class ConsoleMessage:
         """Prints every character of `self.text` to the console."""
 
         for char in self.text:
-            print(char, end='', flush=True)
+            sys.stdout.write(char)
+            sys.stdout.flush()
 
         if newline:
-            print()
+            sys.stdout.write('\n')
+
+        sys.stdout.flush()
 
 
 if __name__ == '__main__':
