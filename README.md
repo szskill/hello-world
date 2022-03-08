@@ -1,5 +1,5 @@
 # Hello World
-## A professional, real-time, quality application to say "Hello, World."
+## A professional, up-to-date, high quality application to print out "Hello, World" to the console in real-time.
 
 ### Usage
 ```shell
